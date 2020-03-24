@@ -30,16 +30,6 @@ module.exports = {
   },
   plugins: [
     [
-      '@vuepress/pwa', 
-      {
-        serviceWorker: true,
-        updatePopup: {
-          message: "Content Updated",
-          buttonText: "Close"
-        }
-      }
-    ],
-    [
       '@vuepress/plugin-register-components',
       {
         components: [
@@ -48,14 +38,10 @@ module.exports = {
             path: path.resolve(__dirname, './components/HomePageOne.vue')
           }
         ],
-        componentsDir: path.resolve(__dirname, './demo')
       }
     ],
-    '@vuepress-reco/extract-code',
-    'flowchart',
     ['sitemap', {
       hostname: 'https://docs.sublimetext.io'
-    }]//,
-    // require('./plugins/notification/index')
+    }]
   ]
 }  
