@@ -2,7 +2,6 @@ const config = {
     title: "Unofficial Sublime Text Documentation",
     description: 'Community Driven Sublime Text Documentation',
     head: [
-        // ['link', { rel: 'icon', href: '/favicon.ico' }],
         ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
         ['meta', { name: 'author', content: 'sublime text community' }],
         ['meta', { name: 'keywords', content: 'sublime text,sublime,documentation' }],
@@ -30,10 +29,10 @@ const config = {
                 text: 'Offical Docs',
                 link: 'https://www.sublimetext.com/docs/3/',
             },
-            // {
-            //     text: 'Default Theme Config',
-            //     link: 'https://vuepress.vuejs.org/theme/default-theme-config.html',
-            // },
+            {
+                text: 'F.A.Q',
+                link: '/views/other/question',
+            },
         ],
         sidebar: [{
                 title: 'Basic', // required

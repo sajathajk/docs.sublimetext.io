@@ -1,5 +1,5 @@
 // based on
-// https://github.com/vuepress/vuepress-community/blob/master/packages/docs/src/.vuepress/components/GitHubLink.vue
+// https://github.com/vuepress/vuepress-community/blob/master/packages/docs/src/.vuepress/components/GithubLink.vue
 
 <template>
   <a

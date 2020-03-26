@@ -8,12 +8,11 @@ title: Build Systems (Batch Processing)
 :::
 
 ::: warning Notice
+Build system selection is currently
+undergoing a rework in the dev channel.
+The following information may be outdated.
 
-   Build system selection is currently
-   undergoing a rework in the dev channel.
-   The following information may be outdated.
-
-   See [this forum thread](https://forum.sublimetext.com/t/build-systems/14435) for details.
+See [this forum thread](https://forum.sublimetext.com/t/build-systems/14435) for details.
 :::
 
 Build systems let you run your files
@@ -24,7 +23,7 @@ Executables called from build systems
 must be in your **`PATH`**.
 For more information about making sure
 the **`PATH`** seen by Sublime Text
-is set correctly, see :ref:`troubleshooting-build-systems`.
+is set correctly, see [Troubleshooting Build Systems](../reference.html#troubleshooting-build-systems).
 
 
 ## File Format

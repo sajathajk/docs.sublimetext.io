@@ -2,14 +2,12 @@
 title: Packages
 ---
 
-Overview
-========
+## Overview
 
 A package is a container for resources.
 
 
-Package Locations (and Abbreviations)
-=====================================
+## Package Locations (and Abbreviations)
 
 There are three locations
 for storing packages
@@ -31,15 +29,15 @@ for different purposes.
 
   This folder is not intended to be modified by the user.
 
-.. note::
-
-   For simplicity, we will occasionally
-   refer to all these directories simply as :file:`{Packages}`,
-   and to a package in any folder
-   (``.sublime-package`` or not)
-   as :file:`{Packages}/PackageName`.
-   Consequently, a file inside a package
-   may also be referred to as :file:`PackageName/a_file.extension`.
+::: tip Note
+For simplicity, we will occasionally
+refer to all these directories simply as :file:`{Packages}`,
+and to a package in any folder
+(``.sublime-package`` or not)
+as :file:`{Packages}/PackageName`.
+Consequently, a file inside a package
+may also be referred to as :file:`PackageName/a_file.extension`.
+:::
 
 
 .. _.sublime-package:

@@ -15,8 +15,8 @@ this section tries to solve this.
 
 ### Index
 
-.. XXX It would be very nice if this could've been automatically generated but I
-.. couldn't find a way and nobody was able to help me out. I AM DISAPPOINT! - FF
+<!-- .. XXX It would be very nice if this could've been automatically generated but I
+.. couldn't find a way and nobody was able to help me out. I AM DISAPPOINT! - FF -->
 
 .. py:currentmodule:: sublime
 
@@ -35,11 +35,11 @@ module :py:mod:`sublime_plugin`
 
 
 
-.. #############################################################################
+<!-- .. #############################################################################
 .. # sublime docs
 .. #############################################################################
 
-.. py:module:: sublime
+.. py:module:: sublime -->
 
 
 ### ``sublime`` module
@@ -49,7 +49,7 @@ module :py:mod:`sublime_plugin`
 
     This class represents windows in Sublime Text and provides an interface of
     methods to interact with them. For all available methods, see the
-    `official documentation <https://www.sublimetext.com/docs/3/api_reference.html#sublime.Window>`__.
+    [official documentation](https://www.sublimetext.com/docs/3/api_reference.html#sublime.Window).
 
     .. py:method:: set_layout(layout)
 
@@ -149,12 +149,12 @@ module :py:mod:`sublime_plugin`
             # or
             sublime.score_selector(view.scope_name(point), selector) != 0
 
-.. #############################################################################
+<!-- .. #############################################################################
 .. # sublime_plugin docs
 .. #############################################################################
 
 
-.. py:module:: sublime_plugin
+.. py:module:: sublime_plugin -->
 
 
 ### ``sublime_plugin`` module

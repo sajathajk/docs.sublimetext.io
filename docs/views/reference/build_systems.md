@@ -499,25 +499,25 @@ your system's settings.
 Environmental variables
 will be expandend.
 
-``file_regex``
+`file_regex`
 Optional.
 
-Sets the ``result_file_regex``
+Sets the `result_file_regex`
 for the results view.
 
 See :ref:`build-capture-error-output`
 for details.
 
-``line_regex``
+`line_regex`
 Optional.
 
-Sets the ``result_line_regex``
+Sets the `result_line_regex`
 for the results view.
 
 See :ref:`build-capture-error-output`
 for details.
 
-``syntax``
+`syntax`
 Optional.
 
 If provided,

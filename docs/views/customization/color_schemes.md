@@ -14,7 +14,7 @@ Let's look at a Python file
 as Sublime Text highlights it
 using the default color scheme *Monokai*:
 
-.. image:: images/color_schemes_main.png
+![](images/color_schemes_main.png)
 
 .. TODO this is incredibly outdated
 
@@ -38,7 +38,7 @@ For more information about settings,
 see :doc:`settings`.
 
 
-.. seealso::
-
-   :doc:`Reference for color schemes <../reference/color_schemes>`
+::: tip See Also
+[Reference for color schemes](../reference/color_schemes)
       Complete reference on color scheme settings.
+:::
