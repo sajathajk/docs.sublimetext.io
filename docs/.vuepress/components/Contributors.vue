@@ -2,7 +2,7 @@
 <div class="contributors-wrapper">
   <h3 class="contributors-title" v-if="showTitle">
     {{ repo }}
-    <GitHubLink :repo="`${user}/${repo}`"/>
+    <GithubLink :repo="`${user}/${repo}`"/>
   </h3>
   <ul class="contributors-list">
     <li class="contributors-item" v-for="(contributor, index) in contributors" :key="index">
@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     getContributors () {
-      require('whatwg-fetch')
+      require('axios')
       const { user, repo } = this
       const uri = `https://api.github.com/repos/${user}/${repo}/contributors`
 

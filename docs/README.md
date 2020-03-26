@@ -2,7 +2,7 @@
 home: true
 heroImage: null
 actionText: Documentation
-actionLink: views/2-3.x/
+actionLink: views/
 ---
 The Sublime Text Unofficial Documentation is a community effort at documenting the [Sublime Text](https://sublimetext.com/) editor. It was started by [Guillermo López-Anglada](https://github.com/guillermooo) in 2010 and later joined by [FichteFoll](https://github.com/FichteFoll) in 2013, receiving countless contributions by other members of the community through its entire lifetime. In 2014, it was backed by a fundraiser and supported by individuals and Sublime HQ Pty Ltd.
 
