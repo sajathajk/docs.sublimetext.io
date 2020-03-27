@@ -2,13 +2,13 @@
 title: Plugins
 ---
 
-.. seealso::
-
-   :doc:`API Reference <../reference/api>`
+::: tip See Also
+[API Reference](../reference/api)
         More information on the Python API.
 
-   :doc:`Plugins Reference <../reference/plugins>`
+[Plugins Reference](../reference/plugins)
         More information about plugins.
+:::        
 
 This section is intended for users with programming skills.
 
@@ -18,58 +18,53 @@ reusing existing commands or creating new ones. Plugins are a logical entity,
 rather than a physical one.
 
 
-Prerequisites
-*************
+### Prerequisites
 
 In order to write plugins, you must be able to program in Python_.
 At the time of this writing, Sublime Text used Python 3.
 
-.. _Python: https://www.python.org
-
-
-Where to Store Plugins
-**********************
+### Where to Store Plugins
 
 Sublime Text will look for plugins only in these places:
 
-* ``Installed Packages`` (only *.sublime-package* files)
-* ``Packages``
-* ``Packages/<pkg_name>/``
+* `Installed Packages` (only *.sublime-package* files)
+* `Packages`
+* `Packages/<pkg_name>/`
 
-As a consequence, any plugin nested deeper in ``Packages`` won't be loaded.
+As a consequence, any plugin nested deeper in `Packages` won't be loaded.
 
-Keeping plugins directly under ``Packages`` is discouraged. Sublime Text sorts
+Keeping plugins directly under `Packages` is discouraged. Sublime Text sorts
 packages in a predefined way before loading them, so if you save plugin files
-directly under ``Packages`` you might get confusing results.
+directly under `Packages` you might get confusing results.
 
 
-Your First Plugin
-*****************
+### Your First Plugin
 
 Let's write a "Hello, World!" plugin for Sublime Text:
 
-#. Select **Tools | New Plugin...** in the menu.
-#. Save to ``Packages/User/hello_world.py``.
+. Select **Tools | New Plugin...** in the menu.
+. Save to `Packages/User/hello_world.py`.
 
 You've just written your first plugin! Let's put it to use:
 
-#. Create a new buffer (``Ctrl+n``).
-#. Open the Python console (``Ctrl+```).
-#. Type: ``view.run_command("example")`` and press enter.
+1. Create a new buffer (`Ctrl+n`).
+2. Open the Python console (`Ctrl+`).
+3. Type: `view.run_command("example")` and press enter.
 
 You should see the text "Hello, World!" in the newly created buffer.
 
 
-Analyzing Your First Plugin
-***************************
+### Analyzing Your First Plugin
 
-The plugin created in the previous section should look roughly like this::
+The plugin created in the previous section should look roughly like this:
 
-    import sublime, sublime_plugin
+```python
+import sublime, sublime_plugin
 
-    class ExampleCommand(sublime_plugin.TextCommand):
-        def run(self, edit):
-            self.view.insert(edit, 0, "Hello, World!")
+class ExampleCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.view.insert(edit, 0, "Hello, World!")
+```
 
 
 Both the ``sublime`` and ``sublime_plugin`` modules are provided by
@@ -93,32 +88,29 @@ but it's often useful when you're in the development phase of a plugin. For
 now, keep in mind that your commands can be accessed through key bindings
 and by other means, just like other commands.
 
-Conventions for Command Names
------------------------------
+#### Conventions for Command Names
 
-You may have noticed that our command is named ``ExampleCommand``, but we
-passed the string ``example`` to the API call instead. This is necessary
-because Sublime Text standardizes command names by stripping the ``Command``
-suffix and separating ``PhrasesLikeThis`` with underscores, like so:
-``phrases_like_this``.
+You may have noticed that our command is named `ExampleCommand`, but we
+passed the string `example` to the API call instead. This is necessary
+because Sublime Text standardizes command names by stripping the `Command`
+suffix and separating `PhrasesLikeThis` with underscores, like so:
+`phrases_like_this`.
 
 New commands should follow the same naming pattern.
 
 
-Types of Commands
-*****************
+### Types of Commands
 
 You can create the following types of commands:
 
-* Window commands (``sublime_plugin.WindowCommand``)
-* Text commands (``sublime_plugin.TextCommand``)
+- Window commands (`sublime_plugin.WindowCommand`)
+- Text commands (`sublime_plugin.TextCommand`)
 
 When writing plugins, consider your goal and choose the appropriate type of
 commands.
 
 
-Shared Traits of Commands
--------------------------
+#### Shared Traits of Commands
 
 All commands need to implement a ``.run()`` method in order to work. Additionally,
 they can receive an arbitrarily long number of keyword parameters.
@@ -126,8 +118,7 @@ they can receive an arbitrarily long number of keyword parameters.
 **Note:** Parameters to commands must be valid JSON values due to how ST
 serializes them internally.
 
-Window Commands
----------------
+#### Window Commands
 
 Window commands operate at the window level. This doesn't mean that you can't
 manipulate views from window commands, but rather that you don't need views in
@@ -143,8 +134,7 @@ parameter.
 
 Window commands are able to route text commands to their window's active view.
 
-Text Commands
--------------
+#### Text Commands
 
 Text commands operate at the view level, so they require a view to exist
 in order to be available.
@@ -155,8 +145,7 @@ that created them.
 The ``.run()`` method of text commands requires an ``edit`` instance as
 its first positional argument.
 
-Text Commands and the ``edit`` Object
--------------------------------------
+#### Text Commands and the ``edit`` Object
 
 The edit object groups modifications to the view so that undo and macros work
 sensibly.
@@ -167,60 +156,54 @@ Plugin creators must ensure that all modifying operations occur inside the
 ``.run`` method of new text commands. To call existing commands, you can use
 ``view.run_command(<cmd_name>, <args>)`` or similar API calls.
 
-Responding to Events
---------------------
+#### Responding to Events
 
 Any command deriving from ``EventListener`` will be able to respond to events.
 
-
-.. _plugins-completions-example:
-
-Another Plugin Example: Feeding the Completions List
-----------------------------------------------------
+#### Another Plugin Example: Feeding the Completions List
 
 Let's create a plugin that fetches data from Google's Autocomplete service and
 then feeds it to the Sublime Text completions list. Please note that, as ideas
 for plugins go, this a very bad one.
 
-.. sourcecode:: py
+```python
+import sublime, sublime_plugin
 
-    import sublime, sublime_plugin
+from xml.etree import ElementTree as ET
+import urllib
 
-    from xml.etree import ElementTree as ET
-    import urllib
+GOOGLE_AC = r"http://google.com/complete/search?output=toolbar&q=%s"
 
-    GOOGLE_AC = r"http://google.com/complete/search?output=toolbar&q=%s"
+class GoogleAutocomplete(sublime_plugin.EventListener):
+    def on_query_completions(self, view, prefix, locations):
+        elements = ET.parse(
+            urllib.request.urlopen(GOOGLE_AC % prefix)
+        ).getroot().findall("./CompleteSuggestion/suggestion")
 
-    class GoogleAutocomplete(sublime_plugin.EventListener):
-        def on_query_completions(self, view, prefix, locations):
-            elements = ET.parse(
-                urllib.request.urlopen(GOOGLE_AC % prefix)
-            ).getroot().findall("./CompleteSuggestion/suggestion")
+        sugs = [(x.attrib["data"],) * 2 for x in elements]
 
-            sugs = [(x.attrib["data"],) * 2 for x in elements]
+        return sugs
+```
 
-            return sugs
+::: tip Note
+Make sure you don't keep this plugin around after trying it or it will
+interfere with the autocompletion system.
+:::
 
-.. note::
-    Make sure you don't keep this plugin around after trying it or it will
-    interfere with the autocompletion system.
-
-.. seealso::
-
-    .. py:currentmodule:: sublime_plugin
+::: tip See Also
+2.. py:currentmodule:: sublime_plugin
 
     :py:meth:`EventListener.on_query_completions`
         Documentation on the API event used in this example.
+:::
 
+### Learning the API
 
-Learning the API
-****************
-
-The API reference is documented at `www.sublimetext.com/docs/3/api_reference.html <https://www.sublimetext.com/docs/3/api_reference.html>`_
+The API reference is documented at [www.sublimetext.com/docs/3/api_reference.html](https://www.sublimetext.com/docs/3/api_reference.html)
 
 To get acquainted with the Sublime Text API and the available commands, 
 it may be helpful to read existing code and learn from it.
 
-In particular, the :file:`Packages/Default` contains many examples of
+In particular, the `Packages/Default` contains many examples of
 undocumented commands and API calls. Note that you will first have to extract
-its contents to a folder if you want to take a look at the code within - `PackageResourceViewer <https://packagecontrol.io/packages/PackageResourceViewer>`_ helps with this.
+its contents to a folder if you want to take a look at the code within - [PackageResourceViewer](https://packagecontrol.io/packages/PackageResourceViewer) helps with this.
