@@ -5,9 +5,7 @@
   },
   "dependencies": {
     "vuepress": "^1.4.0",
-    "vuepress-plugin-container": "^2.1.2"
-  },
-  "devDependencies": {
+    "vuepress-plugin-container": "^2.1.2",
     "axios": "^0.19.2",
     "vuepress-theme-yuu": "^2.2.1"
   }
