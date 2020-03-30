@@ -10,11 +10,10 @@ const config = {
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
         ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
-    // theme: 'sublime',
     themeConfig: {
         sublime: {
             defaultDarkTheme: false,
-            // defaultColorTheme: 'orange',
+            startYear: 2013
         },
         repo: 'sublimetext-io/docs.sublimetext.io',
         docsBranch: 'docs',
