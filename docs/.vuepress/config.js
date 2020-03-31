@@ -21,89 +21,94 @@ const config = {
         editLinks: true,
         sidebarDepth: 3,
         lastUpdated: true,
-        nav: [{
-                text: 'Home',
-                link: '/',
+        nav: [
+            {
+                title: 'Guide',
+                link: '/views/glossary/',
             },
             {
-                text: 'Offical Docs',
-                link: 'https://www.sublimetext.com/docs/3/',
+                title: 'Reference',
+                path: '/views/reference/',
+            },
+            {
+                title: 'Glossary',
+                link: '/views/glossary/',
             },
             {
                 text: 'F.A.Q',
                 link: '/views/other/question',
             },
+            {
+                text: 'Offical Docs',
+                link: 'https://www.sublimetext.com/docs/3/',
+            },
         ],
-        sidebar: [{
-                title: 'Basic', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
+        sidebar: {
+            {
+                title: 'Introduction',
+                path: '/',
+                collapsable: false,
+                sidebarDepth: 3,
                 children: [
                     '/views/',
                     '/views/installation/',
                     '/views/basic-concepts/'
-                ]
+                ],
             },
             {
-                title: 'Editing', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
+                title: 'Editing',
+                path: '/views/editing/',
+                collapsable: false,
+                sidebarDepth: 3,
                 children: [
-                    '/views/editing/'
-                ]
+                ],
             },
             {
-                title: 'Search & Replace', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
+                title: 'Search & Replace',
+                path: '/views/search-and-replace/',
+                collapsable: false,
+                sidebarDepth: 3,
                 children: [
-                    '/views/search-and-replace/',
                     '/views/search-and-replace/search-and-replace-single',
                     '/views/search-and-replace/search-and-replace-multiple'
-                ]
+                ],
             },
             {
-                title: 'Build Systems (Batch Processing)', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
+                title: 'Build Systems (Batch Processing)',
+                path: '/views/build-systems/',
+                collapsable: false,
+                sidebarDepth: 3,
                 children: [
-                    '/views/build-systems/'
-                ]
+                ],
             },
             {
-                title: 'File Management & Navigation', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
+                title: 'File Management & Navigation',
+                path: '/views/file-management/',
+                collapsable: false,
+                sidebarDepth: 3,
                 children: [
-                    '/views/file-management/',
                     '/views/file-management/file-management-projects',
                     '/views/file-management/file-management-navigation'
-                ]
+                ],
             },
             {
-                title: 'Customization', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
+                title: 'Customization',
+                path: '/views/customization/',
+                collapsable: false,
+                sidebarDepth: 3,
                 children: [
-                    '/views/customization/',
                     '/views/customization/settings',
                     '/views/customization/indentation',
                     '/views/customization/key_bindings',
                     '/views/customization/menus',
                     '/views/customization/color_schemes'
-                ]
+                ],
             },
             {
-                title: 'Extensibility & Automation', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
+                title: 'Extensibility & Automation',
+                path: '/views/',
+                collapsable: false,
+                sidebarDepth: 3,
                 children: [
                     '/views/extensibility/',
                     '/views/extensibility/command_palette',
@@ -114,24 +119,18 @@ const config = {
                     '/views/extensibility/plugins',
                     '/views/extensibility/snippets',
                     '/views/extensibility/syntaxdefs'
-                ]
+                ],
             },
             {
-                title: 'Command Line', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/command-line/'
-                ]
+                title: 'Command Line',
+                path: '/views/command-line/',
             },
             {
-                title: 'Reference', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
+                title: 'Reference',
+                path: '/views/reference/',
+                collapsable: true,
+                sidebarDepth: 3,
                 children: [
-                    "/views/reference/",
                     "/views/reference/projects",
                     "/views/reference/syntaxdefs",
                     "/views/reference/color_schemes",
@@ -149,18 +148,9 @@ const config = {
                     "/views/reference/commands",
                     "/views/reference/keyboard_shortcuts_osx",
                     "/views/reference/keyboard_shortcuts_win"
-                ]
+                ],
             },
-            {
-                title: 'Glossary', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/glossary/'
-                ]
-            }
-        ]
+        ],
     },
     markdown: {
         lineNumbers: true,
