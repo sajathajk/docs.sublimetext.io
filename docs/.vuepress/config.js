@@ -163,31 +163,35 @@ const config = {
         ]
     },
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
+        plugins: [
+            'deflist',
+            'footnote',
+            // TODO check if these are the default already
+            ['container', {
+                type: 'note',
+                defaultTitle: 'Note',
+            }],
+            ['container', {
+                type: 'tip',
+                defaultTitle: 'Tip',
+            }],
+            ['container', {
+                type: 'seealso',
+                defaultTitle: 'See Also',
+            }],
+            ['container', {
+                type: 'notice',
+                defaultTitle: 'Notice',
+            }],
+            ['container', {
+                type: 'theorem',
+                before: info => `<div class="theorem"><p class="title">${info}</p>`,
+                after: '</div>',
+            }],
+        ],
     },
-    plugins: [
-        ['container', {
-            type: 'note',
-            defaultTitle: 'Note',
-        }],
-        ['container', {
-            type: 'tip',
-            defaultTitle: 'Tip',
-        }],
-        ['container', {
-            type: 'seealso',
-            defaultTitle: 'See Also',
-        }],
-        ['container', {
-            type: 'notice',
-            defaultTitle: 'Notice',
-        }],
-        ['container', {
-            type: 'theorem',
-            before: info => `<div class="theorem"><p class="title">${info}</p>`,
-            after: '</div>',
-        }],
-    ],
+    // TODO add plugins, e.g. md-check
 };
 
 module.exports = config;
