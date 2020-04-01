@@ -54,7 +54,7 @@ const config = {
             '/guide/': [
                 {
                     title: 'Introduction',
-                    path: '',
+                    path: '/guide/',
                 },
                 {
                     title: 'Installation',
@@ -67,15 +67,14 @@ const config = {
                 {
                     title: 'Editing',
                     path: 'editing/',
-                    sidebarDepth: 3,
-                    children: [
-                    ],
                 },
                 {
                     title: 'Search & Replace',
                     // The theme has a problem if I use a relative path to `/guide/` here.
+                    collapsable: true,
                     path: '/guide/search-and-replace/',
                     children: [
+                        'search-and-replace/',
                         'search-and-replace/search-and-replace-single',
                         'search-and-replace/search-and-replace-multiple'
                     ],
@@ -83,26 +82,23 @@ const config = {
                 {
                     title: 'Build Systems (Batch Processing)',
                     path: 'build-systems/',
-                    sidebarDepth: 3,
-                    children: [
-                    ],
                 },
                 {
                     title: 'File Management & Navigation',
-                    // path: '/guide/file-management',
-                    collapsable: false,
-                    sidebarDepth: 3,
+                    path: '/guide/file-management/',
+                    collapsable: true,
                     children: [
+                        'file-management/',
                         'file-management/file-management-projects',
                         'file-management/file-management-navigation'
                     ],
                 },
                 {
                     title: 'Customization',
-                    path: '/guide/customization',
-                    collapsable: false,
-                    sidebarDepth: 3,
+                    path: '/guide/customization/',
+                    collapsable: true,
                     children: [
+                        'customization/',
                         'customization/settings',
                         'customization/indentation',
                         'customization/key_bindings',
@@ -112,10 +108,10 @@ const config = {
                 },
                 {
                     title: 'Extensibility & Automation',
-                    path: '/guide/extensibility',
-                    collapsable: false,
-                    sidebarDepth: 3,
+                    path: '/guide/extensibility/',
+                    collapsable: true,
                     children: [
+                        'extensibility/',
                         'extensibility/command_palette',
                         'extensibility/commands',
                         'extensibility/completions',
@@ -126,10 +122,6 @@ const config = {
                         'extensibility/syntaxdefs'
                     ],
                 },
-                // {
-                //     title: 'Command Line',
-                //     path: '/command-line/',
-                // },
             ],
             '/reference/': [
                 {
@@ -139,6 +131,7 @@ const config = {
                     sidebarDepth: 1,
                     // TODO maybe flatten
                     children: [
+                        '',
                         'projects',
                         'syntaxdefs',
                         'color_schemes',
