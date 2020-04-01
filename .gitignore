@@ -1,5 +1,5 @@
 node_modules/
-.vuepress/dist
+docs/.vuepress/dist
 yarn-error.log
 
 *.sublime-workspace

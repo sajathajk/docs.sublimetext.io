@@ -2,7 +2,7 @@
 home: true
 heroImage: null
 actionText: Documentation
-actionLink: views/
+actionLink: guide/
 ---
 The Sublime Text Unofficial Documentation 
 is a community effort 

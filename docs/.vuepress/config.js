@@ -10,11 +10,9 @@ const config = {
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
         ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
-    // theme: 'sublime',
     themeConfig: {
         sublime: {
             defaultDarkTheme: false,
-            // defaultColorTheme: 'orange',
         },
         repo: 'sublimetext-io/docs.sublimetext.io',
         docsDir: 'docs',
@@ -23,15 +21,15 @@ const config = {
         lastUpdated: true,
         nav: [
             {
-                title: 'Guide',
+                text: 'Guide',
                 link: '/guide/',
             },
             {
-                title: 'Reference',
+                text: 'Reference',
                 link: '/reference/',
             },
             {
-                title: 'Glossary',
+                text: 'Glossary',
                 link: '/glossary',
             },
             {
@@ -77,8 +75,6 @@ const config = {
                     title: 'Search & Replace',
                     // The theme has a problem if I use a relative path to `/guide/` here.
                     path: '/guide/search-and-replace/',
-                    collapsable: false,
-                    sidebarDepth: 3,
                     children: [
                         'search-and-replace/search-and-replace-single',
                         'search-and-replace/search-and-replace-multiple'
@@ -170,28 +166,6 @@ const config = {
         plugins: [
             'deflist',
             'footnote',
-            // TODO check if these are the default already
-            ['container', {
-                type: 'note',
-                defaultTitle: 'Note',
-            }],
-            ['container', {
-                type: 'tip',
-                defaultTitle: 'Tip',
-            }],
-            ['container', {
-                type: 'seealso',
-                defaultTitle: 'See Also',
-            }],
-            ['container', {
-                type: 'notice',
-                defaultTitle: 'Notice',
-            }],
-            ['container', {
-                type: 'theorem',
-                before: info => `<div class="theorem"><p class="title">${info}</p>`,
-                after: '</div>',
-            }],
         ],
     },
     // TODO add plugins, e.g. md-check

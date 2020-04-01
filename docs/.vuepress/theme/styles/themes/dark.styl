@@ -228,17 +228,23 @@
 		.nav-links {
 			border-bottom-color: $darkBorderColor;
 		}
+		.sidebar-links { 
+	        .sidebar-heading {
+	            color: $darkTextColor;
+	            }
+        }
 	}
 
 	// @parent-theme/components/SidebarLink.vue
 	a.sidebar-link {
-		color: $darkAltTextColor;
+		color: $darkTextColor;
 
 		&:hover,
 		&.active {
 			color: $accentColor;
 		}
 	}
+	
 
 	// @vuepress/plugin-pwa/lib/SWUpdatePopup.vue
 	.sublime-theme-dark {
