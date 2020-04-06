@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'GithubLink',
+  name: 'GitHubLink',
   props: {
     repo: {
       type: String,

@@ -16,177 +16,153 @@ const config = {
             startYear: 2013
         },
         repo: 'sublimetext-io/docs.sublimetext.io',
-        docsBranch: 'docs',
+        docsDir: 'docs',
         editLinks: true,
         sidebarDepth: 3,
         lastUpdated: true,
-        nav: [{
-                text: 'Home',
-                link: '/',
+        nav: [
+            {
+                text: 'Guide',
+                link: '/guide/',
+            },
+            {
+                text: 'Reference',
+                link: '/reference/',
+            },
+            {
+                text: 'Glossary',
+                link: '/glossary',
+            },
+            {
+                text: 'F.A.Q',
+                link: '/other/question',
             },
             {
                 text: 'Offical Docs',
                 link: 'https://www.sublimetext.com/docs/3/',
             },
-            {
-                text: 'F.A.Q',
-                link: '/views/other/question',
-            },
         ],
-        sidebar: [{
-                title: 'Basic', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/',
-                    '/views/installation/',
-                    '/views/basic-concepts/'
-                ]
-            },
-            {
-                title: 'Editing', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/editing/'
-                ]
-            },
-            {
-                title: 'Search & Replace', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/search-and-replace/',
-                    '/views/search-and-replace/search-and-replace-single',
-                    '/views/search-and-replace/search-and-replace-multiple'
-                ]
-            },
-            {
-                title: 'Build Systems (Batch Processing)', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/build-systems/'
-                ]
-            },
-            {
-                title: 'File Management & Navigation', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/file-management/',
-                    '/views/file-management/file-management-projects',
-                    '/views/file-management/file-management-navigation'
-                ]
-            },
-            {
-                title: 'Customization', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/customization/',
-                    '/views/customization/settings',
-                    '/views/customization/indentation',
-                    '/views/customization/key_bindings',
-                    '/views/customization/menus',
-                    '/views/customization/color_schemes'
-                ]
-            },
-            {
-                title: 'Extensibility & Automation', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/extensibility/',
-                    '/views/extensibility/command_palette',
-                    '/views/extensibility/commands',
-                    '/views/extensibility/completions',
-                    '/views/extensibility/macros',
-                    '/views/extensibility/packages',
-                    '/views/extensibility/plugins',
-                    '/views/extensibility/snippets',
-                    '/views/extensibility/syntaxdefs'
-                ]
-            },
-            {
-                title: 'Command Line', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/command-line/'
-                ]
-            },
-            {
-                title: 'Reference', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    "/views/reference/",
-                    "/views/reference/projects",
-                    "/views/reference/syntaxdefs",
-                    "/views/reference/color_schemes",
-                    '/views/reference/build_systems',
-                    "/views/reference/key_bindings",
-                    "/views/reference/menus",
-                    "/views/reference/settings",
-                    "/views/reference/completions",
-                    "/views/reference/symbols",
-                    "/views/reference/comments",
-                    "/views/reference/metadata",
-                    "/views/reference/command_palette",
-                    "/views/reference/plugins",
-                    "/views/reference/api",
-                    "/views/reference/commands",
-                    "/views/reference/keyboard_shortcuts_osx",
-                    "/views/reference/keyboard_shortcuts_win"
-                ]
-            },
-            {
-                title: 'Glossary', // required
-                path: '/views/', // optional, which should be a absolute path.
-                collapsable: false, // optional, defaults to true
-                sidebarDepth: 3, // optional, defaults to 1
-                children: [
-                    '/views/glossary/'
-                ]
-            }
-        ]
+        sidebar: {
+            // '/': {
+            //     title: 'Introduction',
+            //     path: '/',
+            //     collapsable: false,
+            //     sidebarDepth: 3,
+            //     children: [
+            //         '',
+            //     ],
+            // },
+            '/guide/': [
+                {
+                    title: 'Introduction',
+                    path: '/guide/',
+                },
+                {
+                    title: 'Installation',
+                    path: 'installation',
+                },
+                {
+                    title: 'Basic Concepts',
+                    path: 'basic-concepts/',
+                },
+                {
+                    title: 'Editing',
+                    path: 'editing/',
+                },
+                {
+                    title: 'Search & Replace',
+                    // The theme has a problem if I use a relative path to `/guide/` here.
+                    collapsable: true,
+                    path: '/guide/search-and-replace/',
+                    children: [
+                        'search-and-replace/',
+                        'search-and-replace/search-and-replace-single',
+                        'search-and-replace/search-and-replace-multiple'
+                    ],
+                },
+                {
+                    title: 'Build Systems (Batch Processing)',
+                    path: 'build-systems/',
+                },
+                {
+                    title: 'File Management & Navigation',
+                    path: '/guide/file-management/',
+                    collapsable: true,
+                    children: [
+                        'file-management/',
+                        'file-management/file-management-projects',
+                        'file-management/file-management-navigation'
+                    ],
+                },
+                {
+                    title: 'Customization',
+                    path: '/guide/customization/',
+                    collapsable: true,
+                    children: [
+                        'customization/',
+                        'customization/settings',
+                        'customization/indentation',
+                        'customization/key_bindings',
+                        'customization/menus',
+                        'customization/color_schemes'
+                    ],
+                },
+                {
+                    title: 'Extensibility & Automation',
+                    path: '/guide/extensibility/',
+                    collapsable: true,
+                    children: [
+                        'extensibility/',
+                        'extensibility/command_palette',
+                        'extensibility/commands',
+                        'extensibility/completions',
+                        'extensibility/macros',
+                        'extensibility/packages',
+                        'extensibility/plugins',
+                        'extensibility/snippets',
+                        'extensibility/syntaxdefs'
+                    ],
+                },
+            ],
+            '/reference/': [
+                {
+                    title: 'Reference',
+                    path: '/reference/',
+                    collapsable: false,
+                    sidebarDepth: 1,
+                    // TODO maybe flatten
+                    children: [
+                        '',
+                        'projects',
+                        'syntaxdefs',
+                        'color_schemes',
+                        'build_systems',
+                        'key_bindings',
+                        'menus',
+                        'settings',
+                        'completions',
+                        'symbols',
+                        'comments',
+                        'metadata',
+                        'command_palette',
+                        'plugins',
+                        'api',
+                        'commands',
+                        'keyboard_shortcuts_osx',
+                        'keyboard_shortcuts_win'
+                    ],
+                },
+            ],
+        },
     },
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
+        plugins: [
+            'deflist',
+            'footnote',
+        ],
     },
-    plugins: [
-        ['container', {
-            type: 'note',
-            defaultTitle: 'Note',
-        }],
-        ['container', {
-            type: 'tip',
-            defaultTitle: 'Tip',
-        }],
-        ['container', {
-            type: 'seealso',
-            defaultTitle: 'See Also',
-        }],
-        ['container', {
-            type: 'notice',
-            defaultTitle: 'Notice',
-        }],
-        ['container', {
-            type: 'theorem',
-            before: info => `<div class="theorem"><p class="title">${info}</p>`,
-            after: '</div>',
-        }],
-    ],
+    // TODO add plugins, e.g. md-check
 };
 
 module.exports = config;

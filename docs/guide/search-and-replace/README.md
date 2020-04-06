@@ -41,10 +41,13 @@ Sublime Text uses the
 Perl Compatible Regular Expressions (PCRE) engine
 from the Boost library.
 
+
 ::: tip See Also
+
 [Boost library documentation for regular expressions](https://www.boost.org/doc/libs/release/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html)
-	Documentation on regular expressions.
+  ~ Documentation on regular expressions.
 
 [Boost library documentation for format strings](https://www.boost.org/doc/libs/release/libs/regex/doc/html/boost_regex/format/perl_format.html)
-	Documentation on format strings. Note that Sublime Text additionally interprets `\\{n}` as `${n}`.
+  ~ Documentation on format strings.
+    Note that Sublime Text additionally interprets `\\{n}` as `${n}`.
 :::

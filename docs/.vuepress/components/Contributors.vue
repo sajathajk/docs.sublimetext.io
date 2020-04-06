@@ -2,7 +2,7 @@
 <div class="contributors-wrapper">
   <h3 class="contributors-title" v-if="showTitle">
     {{ repo }}
-    <GithubLink :repo="`${user}/${repo}`"/>
+    <GitHubLink :repo="`${user}/${repo}`"/>
   </h3>
   <ul class="contributors-list">
     <li class="contributors-item" v-for="(contributor, index) in contributors" :key="index">
